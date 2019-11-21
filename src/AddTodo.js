@@ -14,20 +14,21 @@ class AddTodo extends React.Component {
     changeInput(e){
         const newVal = e.target.value;
         this.setState({
-            inputVal: newVal
+            inputVal: newVal 
         });
     }
 
     addTodo(event){
         event.preventDefault();
+        if(this.state.inputVal.length>0){
         this.props.onTodoAdd(this.state.inputVal);
         this.setState({
             inputVal: ""
         });
     }
+    }
 
     render() {
-        const {onAdd} = this.props;
         return <form
             onSubmit={this.addTodo}>
             <input
@@ -35,6 +36,8 @@ class AddTodo extends React.Component {
                 value={this.state.inputVal}
                 onChange={this.changeInput} />
             <button>Ekle</button>
+
+            Addtodo companenti
         </form>
     }
 }
